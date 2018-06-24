@@ -13,11 +13,8 @@ bot.on("message", (msg) => {
     if (msg.content === "aaa"){
         timestart()
         
-        msg.channel.send("ปัจจุบัน"+countz)
-        msg.channel.send(utcDate1)
-        msg.channel.send("เวลาเซท"+timez)
-        msg.channel.send("เวลานับ"+count)
-        msg.channel.send(setgame+' in '+hh + "h "+ mm+ "m ")
+        msg.channel.send("เวลา")
+    
     }
 
   })
