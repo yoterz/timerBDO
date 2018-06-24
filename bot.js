@@ -63,7 +63,8 @@ var countDownDate =  countDownDatez + count
 var x = setInterval(function() {
 
     // ดึงเวลาปัจจุบัน
-   // var now = new Date().getTime();
+    //var now = new Date().getTime();
+    var currentUtcTimez = new Date();
     var now = new Date(currentUtcTimez.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
     // เวลาที่จถึง-เวลาปัจจุบัน
     var distance = countDownDate - now;
