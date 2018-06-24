@@ -18,7 +18,7 @@ bot.on("message", (msg) => {
         msg.channel.send("เวลาเซท"+timez)
         count = timez - countz
         msg.channel.send("เวลานับ"+count)
-       
+        countdown(count)
     }
 
   })
@@ -26,6 +26,7 @@ bot.on("message", (msg) => {
 function timestart(){
 currentUtcTime = new Date(); // This is in UTC
 thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }))
+    
 countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime()
 
 day= thTimeZone.getDay()   
@@ -41,7 +42,7 @@ months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
 }
 
  function setcount(settime){
- var settime = [year , month ,d , 23 , 20 , s]     
+ var settime = [year , month ,d , 14 , 40 , s]     
  utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
  timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
 
@@ -49,6 +50,43 @@ months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
  currentUtcTime = new Date(); // This is in UTC
  countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
 
- count = timez - countz //เวลาตั้ง - เวลาจิง
-
  }
+
+function countdown(count) {
+// ดึงเวลาปัจจุบัน+เวลาที่จะนับถอยหลัง 
+var currentUtcTimez = new Date(); // This is in UTC
+var countDownDatez = new Date(currentUtcTimez.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
+var countDownDate =  countDownDatez + count
+//console.log('countdown =  '+countDownDate)
+
+// อัพเดท เรียกใช้ทุก1 วินาที
+var x = setInterval(function() {
+
+    // ดึงเวลาปัจจุบัน
+   // var now = new Date().getTime();
+    var now = new Date(currentUtcTimez.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
+    // เวลาที่จถึง-เวลาปัจจุบัน
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    hh = hours
+    mm = minutes
+    // แสดง วันเวลา
+    //console.log(distance)
+    bot.user.setGame(setgame+' in '+hours + "h "+ minutes+ "m ")
+   
+    
+    // นับถึง1หรือน้อยกว่า0 แสดงข้อความ 
+    if (distance < 1000) {
+        clearInterval(x);
+        chktime()
+    	
+    }
+    
+}, 1000);
+}
