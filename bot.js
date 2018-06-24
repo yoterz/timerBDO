@@ -99,7 +99,7 @@ function timestart(){
 
 }
 
- function setcount(settime){
+ function setcount(){
   
      utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
      timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
