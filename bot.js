@@ -11,10 +11,13 @@ bot.on("ready",() => {
 bot.on("message", (msg) => {
     if (msg.content === "aaa"){
         timestart()
+        
+        msg.channel.send("ปัจจุบัน"+countz)
         setcount()
         msg.channel.send(utcDate1)
-        msg.channel.send(countz)
-        msg.channel.send(count)
+        msg.channel.send("เวลาเซท"+timez)
+        count = timez - countz
+        msg.channel.send("เวลานับ"+count)
        
     }
 
@@ -23,6 +26,7 @@ bot.on("message", (msg) => {
 function timestart(){
 currentUtcTime = new Date(); // This is in UTC
 thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }))
+countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime()
 
 day= thTimeZone.getDay()   
 d = thTimeZone.getDate()
