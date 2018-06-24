@@ -12,8 +12,8 @@ chktime()
 bot.on("message", (msg) => {
     if (msg.content === "aaa"){
         timestart()
-        
-        msg.channel.send("เวลา")
+       msg.channel.send('```autohotkey\n '+'           เวลากลางคืน\n'+'        02.40   -   03.20\n'+'        06.40   -   07.20\n'
+        +'        10.40   -   11.20\n'+'        14.40   -   15.20\n'+'        18.40   -   19.20\n'+'        22.40   -   23.20'+'``` ')
     
     }
 
