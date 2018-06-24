@@ -18,6 +18,7 @@ bot.on("message", (msg) => {
         msg.channel.send("เวลาเซท"+timez)
         count = timez - countz
         msg.channel.send("เวลานับ"+count)
+        setgame = 'Day'
         countdown()
     }
 
@@ -42,7 +43,7 @@ months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
 }
 
  function setcount(settime){
- var settime = [year , month ,d , 14 , 40 , s]     
+ var settime = [year , month ,d , 15 , 20 , s]     
  utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
  timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
 
