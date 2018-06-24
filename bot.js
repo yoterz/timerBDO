@@ -17,7 +17,7 @@ bot.on("message", (msg) => {
         msg.channel.send(utcDate1)
         msg.channel.send("เวลาเซท"+timez)
         msg.channel.send("เวลานับ"+count)
-        msg.channel.send(setgame+' in '+hours + "h "+ minutes+ "m ")
+        msg.channel.send(setgame+' in '+hh + "h "+ mm+ "m ")
     }
 
   })
