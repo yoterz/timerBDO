@@ -18,7 +18,7 @@ bot.on("message", (msg) => {
         msg.channel.send("เวลาเซท"+timez)
         count = timez - countz
         msg.channel.send("เวลานับ"+count)
-        countdown(count)
+        //countdown(count)
     }
 
   })
