@@ -4,9 +4,10 @@ bot.login(process.env.BOT_TOKEN)
 
 bot.on("ready",() => {
     console.log('Ready...')
-    chktime()    
+        
 })
 
+chktime()
 
 bot.on("message", (msg) => {
     if (msg.content === "aaa"){
