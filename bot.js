@@ -11,8 +11,9 @@ bot.on("ready",() => {
 bot.on("message", (msg) => {
     if (msg.content === "aaa"){
         timestart()
-        msg.channel.send(thTimeZone)
-        msg.channel.send(h+' '+m)
+        msg.channel.send(utcDate1)
+        msg.channel.send(countz)
+        msg.channel.send(count)
        
     }
 
@@ -33,3 +34,16 @@ days = new Array('Sun', 'Monร์', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat')
 months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
 
 }
+
+ function setcount(settime){
+ var settime = [year , month ,d , 23 , 20 , s]     
+ utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
+ timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
+
+ //var countz = new Date().getTime() //เวลาปัจจุบัน
+ currentUtcTime = new Date(); // This is in UTC
+ countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
+
+ count = timez - countz //เวลาตั้ง - เวลาจิง
+
+ }
