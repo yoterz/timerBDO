@@ -19,8 +19,8 @@ bot.on("message", (msg) => {
   })
   
 function timestart(){
-var currentUtcTime = new Date(); // This is in UTC
-var thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
+currentUtcTime = new Date(); // This is in UTC
+thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
 
 day= thTimeZone.getDay()   
 d = thTimeZone.getDate();
