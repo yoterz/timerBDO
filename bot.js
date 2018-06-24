@@ -9,7 +9,7 @@ bot.on("ready",() => {
 
 
 bot.on("message", (msg) => {
-    if (msg.content === "aaa"){
+    if (msg.content === "เวลา"){
         msg.channel.send('```autohotkey\n '+'           เวลากลางคืน\n'+'        02.40   -   03.20\n'+'        06.40   -   07.20\n'
         +'        10.40   -   11.20\n'+'        14.40   -   15.20\n'+'        18.40   -   19.20\n'+'        22.40   -   23.20'+'``` ')
      bot.user.setUsername('Timer BDO')
@@ -82,7 +82,10 @@ bot.on("message", (msg) => {
  var utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
  var timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
 
- var countz = new Date().getTime() //เวลาปัจจุบัน
+ //var countz = new Date().getTime() //เวลาปัจจุบัน
+ var currentUtcTime = new Date(); // This is in UTC
+ var countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
+
  var count = timez - countz //เวลาตั้ง - เวลาจิง
 
  countdown(count)
@@ -107,14 +110,17 @@ months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
 
 function countdown(count) {
 // ดึงเวลาปัจจุบัน+เวลาที่จะนับถอยหลัง 
-var countDownDate = new Date().getTime()+count;
+var currentUtcTime = new Date(); // This is in UTC
+var countDownDate = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime()+count;
 //console.log('countdown =  '+countDownDate)
 
 // อัพเดท เรียกใช้ทุก1 วินาที
 var x = setInterval(function() {
 
     // ดึงเวลาปัจจุบัน
-    var now = new Date().getTime();
+   // var now = new Date().getTime();
+    var currentUtcTime = new Date(); // This is in UTC
+    var now = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
     // เวลาที่จถึง-เวลาปัจจุบัน
     var distance = countDownDate - now;
     
