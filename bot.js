@@ -134,7 +134,7 @@ var x = setInterval(function() {
     mm = minutes
     // แสดง วันเวลา
     //console.log(distance)
-    bot.user.setGame(setgame+' in '+hours + "h "+ minutes+ "m ")
+    bot.user.setGame(setgame+' in '+hours + "hh "+ minutes+ "mm ")
    console.clear()
     console.log(days + "d " + hours + "h "+ minutes + "m " + seconds + "s ")
     
