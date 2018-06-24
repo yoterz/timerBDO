@@ -4,7 +4,7 @@ bot.login(process.env.BOT_TOKEN)
 
 bot.on("ready",() => {
     console.log('Ready...')
-        
+    chktime()    
 })
 
 
@@ -13,55 +13,113 @@ bot.on("message", (msg) => {
         timestart()
         
         msg.channel.send("ปัจจุบัน"+countz)
-        setcount()
         msg.channel.send(utcDate1)
         msg.channel.send("เวลาเซท"+timez)
-        count = timez - countz
         msg.channel.send("เวลานับ"+count)
-        setgame = 'Day'
-        countdown()
+        msg.channel.send(setgame+' in '+hours + "h "+ minutes+ "m ")
     }
 
   })
   
-function timestart(){
-currentUtcTime = new Date(); // This is in UTC
-thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }))
-    
-countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime()
+ function chktime(){
+    timestart()
 
-day= thTimeZone.getDay()   
-d = thTimeZone.getDate()
-month = thTimeZone.getMonth()
-year = thTimeZone.getFullYear()
-h = thTimeZone.getHours()
-m = thTimeZone.getMinutes()   
-s = thTimeZone.getSeconds()
-days = new Array('Sun', 'Monร์', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat')
-months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+    if (h == 0 || h == 1|| (h == 2 && m < 40)){
+        settime = [year , month ,d , 2 , 40 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Night'
+    }
+    if ((h == 2 && m > 39) || (h == 3 && m < 20)){
+        settime = [year , month ,d , 3 , 20 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Daytime'
+    }
+    if ((h == 3 && m > 19) || h == 4 || h == 5 || (h == 6 && m < 40)){
+        settime = [year , month ,d , 6 , 40 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Night'
+    }
+    if ((h == 6 && m > 39) || (h == 7 && m < 20)){
+        settime = [year , month ,d , 7 , 20 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Daytime'
+    }
+    if ((h == 7 && m > 19) || h == 8 || h == 9 || (h == 10 && m < 40)){
+        settime = [year , month ,d , 10 , 40 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Night'
+    }
+    if ((h == 10 && m > 39) || (h == 11 && m < 20)){
+        settime = [year , month ,d , 11 , 20 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Daytime'
+    }
+    if ((h == 11 && m > 19) || h == 12 || h == 13 || (h == 14 && m < 40)){
+        settime = [year , month ,d , 14 , 40 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Night'
+    }
+    if ((h == 14 && m > 39) || (h == 15 && m < 20)){
+        settime = [year , month ,d , 15 , 20 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Daytime'
+    }
+    if ((h == 15 && m > 19) || h == 16 || h == 17 || (h == 18 && m < 40)){
+        settime = [year , month ,d , 18 , 40 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Night'
+    }
+    if ((h == 18 && m > 39) || (h == 19 && m < 20)){
+        settime = [year , month ,d , 19 , 20 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Daytime'
+    }
+    if ((h == 19 && m > 19) || h == 20 || h == 21 || (h == 22 && m < 40)){
+        settime = [year , month ,d , 22 , 40 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Night'
+    }
+    if ((h == 22 && m > 39) || (h == 23 && m < 20)){
+        settime = [year , month ,d , 23 , 20 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Daytime'
+    }
+    if ((h == 23 && m >19) || (h == 23 && m < 60)){
+        settime = [year , month ,d+1 , 2 , 40 , s]      //เซทเวลาสิ้นสุดการนับ
+        setgame = 'Night'
+    }
+    
+    setcount()
+ }
+
+
+function timestart(){
+    currentUtcTime = new Date(); // This is in UTC
+    thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }))
+    
+    countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime()
+
+    day= thTimeZone.getDay()   
+    d = thTimeZone.getDate()
+    month = thTimeZone.getMonth()
+    year = thTimeZone.getFullYear()
+    h = thTimeZone.getHours()
+    m = thTimeZone.getMinutes()   
+    s = thTimeZone.getSeconds()
+    days = new Array('Sun', 'Monร์', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat')
+    months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
 
 }
 
  function setcount(settime){
- var settime = [year , month ,d , 15 , 20 , s]     
- utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
- timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
+  
+     utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
+     timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
 
- //var countz = new Date().getTime() //เวลาปัจจุบัน
- currentUtcTime = new Date(); // This is in UTC
- countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
 
+     currentUtcTime = new Date(); // This is in UTC
+     countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
+     count = timez - countz
+     countdown()
  }
 
 function countdown() {
 // ดึงเวลาปัจจุบัน+เวลาที่จะนับถอยหลัง 
-var currentUtcTimez = new Date(); // This is in UTC
-var countDownDatez = new Date(currentUtcTimez.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
-var countDownDate =  countDownDatez + count
-//console.log('countdown =  '+countDownDate)
+    var currentUtcTimez = new Date(); // This is in UTC
+    var countDownDatez = new Date(currentUtcTimez.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
+    var countDownDate =  countDownDatez + count
+
 
 // อัพเดท เรียกใช้ทุก1 วินาที
-var x = setInterval(function() {
+    var x = setInterval(function() {
 
     // ดึงเวลาปัจจุบัน
     //var now = new Date().getTime();
