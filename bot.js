@@ -13,6 +13,8 @@ bot.on("message", (msg) => {
         msg.channel.send('```autohotkey\n '+'           เวลากลางคืน\n'+'        02.40   -   03.20\n'+'        06.40   -   07.20\n'
         +'        10.40   -   11.20\n'+'        14.40   -   15.20\n'+'        18.40   -   19.20\n'+'        22.40   -   23.20'+'``` ')
      bot.user.setUsername('Timer BDO')
+        msg.channel.send(h+' '+m)
+        msg.channel.send(hh+' '+mm)
     }
 
   })
@@ -135,13 +137,11 @@ var x = setInterval(function() {
     // แสดง วันเวลา
     //console.log(distance)
     bot.user.setGame(setgame+' in '+hours + "hh "+ minutes+ "mm ")
-   console.clear()
-    console.log(days + "d " + hours + "h "+ minutes + "m " + seconds + "s ")
+   
     
     // นับถึง1หรือน้อยกว่า0 แสดงข้อความ 
     if (distance < 1000) {
         clearInterval(x);
-        console.log('หมดเวลานับ')
         chktime()
     	
     }
