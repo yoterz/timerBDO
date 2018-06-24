@@ -18,7 +18,7 @@ bot.on("message", (msg) => {
         msg.channel.send("เวลาเซท"+timez)
         count = timez - countz
         msg.channel.send("เวลานับ"+count)
-        //countdown(count)
+        countdown()
     }
 
   })
@@ -52,7 +52,7 @@ months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
 
  }
 
-function countdown(count) {
+function countdown() {
 // ดึงเวลาปัจจุบัน+เวลาที่จะนับถอยหลัง 
 var currentUtcTimez = new Date(); // This is in UTC
 var countDownDatez = new Date(currentUtcTimez.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
