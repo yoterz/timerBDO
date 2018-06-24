@@ -19,17 +19,17 @@ bot.on("message", (msg) => {
   })
   
 function timestart(){
-currentUtcTime = new Date(); // This is in UTC
-thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
-
+//currentUtcTime = new Date(); // This is in UTC
+//thTimeZone = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }))
+thTimeZone = new Date()
 day= thTimeZone.getDay()   
-d = thTimeZone.getDate();
-month = thTimeZone.getMonth();
-year = thTimeZone.getFullYear();
+d = thTimeZone.getDate()
+month = thTimeZone.getMonth()
+year = thTimeZone.getFullYear()
 h = thTimeZone.getHours()
 m = thTimeZone.getMinutes()   
-s = thTimeZone.getSeconds();
-days = new Array('Sun', 'Monร์', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');    
-months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+s = thTimeZone.getSeconds()
+days = new Array('Sun', 'Monร์', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat')
+months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
 
 }
