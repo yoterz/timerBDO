@@ -11,7 +11,7 @@ bot.on("ready",() => {
 bot.on("message", (msg) => {
     if (msg.content === "aaa"){
         timestart()
-        setcount(settime)
+        setcount()
         msg.channel.send(utcDate1)
         msg.channel.send(countz)
         msg.channel.send(count)
