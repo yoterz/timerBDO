@@ -128,7 +128,15 @@ function countdown() {
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-     
+   
+       //**แต่งเวลาให้สวย
+      if (hours < 10) {
+        hours = "0" + hours;
+       }
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+       }
+
     // แสดง วันเวลา
      bot.user.setGame(setgame+' in '+hours + " h "+ minutes+ " m ")
        
