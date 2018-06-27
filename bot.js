@@ -16,8 +16,7 @@ bot.on("message", (msg) => {
         +'        10.40   -   11.20\n'+'        14.40   -   15.20\n'+'        18.40   -   19.20\n'+'        22.40   -   23.20'+'``` ')
     
     }
-
-  })
+ })
   
  function chktime(){
     timestart()
@@ -92,8 +91,8 @@ function timestart(){
     h = thTimeZone.getHours()
     m = thTimeZone.getMinutes()   
     s = thTimeZone.getSeconds()
-    days = new Array('Sun', 'Monร์', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat')
-    months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+    //days = new Array('Sun', 'Monร์', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat')
+    //months = new Array('Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
 
 }
 
@@ -101,7 +100,6 @@ function timestart(){
   
      utcDate1 = new Date(settime[0],settime[1],settime[2],settime[3],settime[4],settime[5]) //เวลาที่ตั้งค่ามา
      timez = new Date(utcDate1).getTime() //แปลงเป็นmsec
-
 
      currentUtcTime = new Date(); // This is in UTC
      countz = new Date(currentUtcTime.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
@@ -120,10 +118,9 @@ function countdown() {
     var x = setInterval(function() {
 
     // ดึงเวลาปัจจุบัน
-    //var now = new Date().getTime();
     var currentUtcTimez = new Date();
     var now = new Date(currentUtcTimez.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })).getTime();
-    // เวลาที่จถึง-เวลาปัจจุบัน
+    // เวลาที่จะถึง-เวลาปัจจุบัน
     var distance = countDownDate - now;
     
     // Time calculations for days, hours, minutes and seconds
@@ -131,20 +128,15 @@ function countdown() {
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    hh = hours
-    mm = minutes
+     
     // แสดง วันเวลา
-    //console.log(distance)
-    bot.user.setGame(setgame+' in '+hours + " h "+ minutes+ " m ")
-   
-    
-    // นับถึง1หรือน้อยกว่า0 แสดงข้อความ 
+     bot.user.setGame(setgame+' in '+hours + " h "+ minutes+ " m ")
+       
+    // นับถึงน้อยกว่า1000 แสดงข้อความ 
     if (distance < 1000) {
         clearInterval(x);
         chktime()
-    	
-    }
+  }
     
 }, 1000);
 }
