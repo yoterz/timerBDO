@@ -136,7 +136,7 @@ function countdown() {
     mm = minutes
     // แสดง วันเวลา
     //console.log(distance)
-    bot.user.setGame(setgame+' in '+hours + "h "+ minutes+ "m ")
+    bot.user.setGame(setgame+' in '+hours + " h "+ minutes+ " m ")
    
     
     // นับถึง1หรือน้อยกว่า0 แสดงข้อความ 
