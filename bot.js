@@ -138,7 +138,8 @@ function countdown() {
        }
 
     // แสดง วันเวลา
-     bot.user.setGame(setgame+' in '+hours + " h "+ minutes+ " m ")
+        bot.user.setGame("Shutdown..")
+     //bot.user.setGame(setgame+' in '+hours + " h "+ minutes+ " m ")
        
     // นับถึงน้อยกว่า1000 แสดงข้อความ 
     if (distance < 1000) {
